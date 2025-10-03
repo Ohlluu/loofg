@@ -134,12 +134,18 @@ nav {
     margin-bottom: 1.5rem;
     letter-spacing: -2px;
     color: #ffffff;
-    background: linear-gradient(45deg, #ffffff, #c9a961, #ffffff, #c9a961);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease infinite;
+    animation: textColorShift 4s ease infinite;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+    .hero-content h1 {
+        background: linear-gradient(45deg, #ffffff, #c9a961, #ffffff, #c9a961);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradientShift 4s ease infinite;
+    }
 }
 
 .hero-content p {
@@ -314,6 +320,15 @@ footer p {
 }
 
 /* Animations */
+@keyframes textColorShift {
+    0%, 100% {
+        color: #ffffff;
+    }
+    50% {
+        color: #c9a961;
+    }
+}
+
 @keyframes gradientShift {
     0% {
         background-position: 0% 50%;
