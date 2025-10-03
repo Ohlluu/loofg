@@ -133,18 +133,20 @@ nav {
     font-weight: 900;
     margin-bottom: 1.5rem;
     letter-spacing: -2px;
-    color: #ffffff;
-    animation: textColorShift 4s ease infinite;
 }
 
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-    .hero-content h1 {
-        background: linear-gradient(45deg, #ffffff, #c9a961, #ffffff, #c9a961);
-        background-size: 300% 300%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation: gradientShift 4s ease infinite;
+.gold-white-text {
+    display: inline-block;
+    color: #ffffff;
+    animation: colorShift 3s ease-in-out infinite;
+}
+
+@keyframes colorShift {
+    0%, 100% {
+        color: #ffffff;
+    }
+    50% {
+        color: #c9a961;
     }
 }
 
@@ -320,27 +322,6 @@ footer p {
 }
 
 /* Animations */
-@keyframes textColorShift {
-    0%, 100% {
-        color: #ffffff;
-    }
-    50% {
-        color: #c9a961;
-    }
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
 @keyframes fadeIn {
     from {
         opacity: 0;
